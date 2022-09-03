@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { observer } from 'mobx-react';
+import { Routes, Route } from 'react-router-dom';
+import HomeView from './views/homeView/homeView';
 
-function App() {
+
+import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
+import "primereact/resources/primereact.min.css";                  //core css
+import "primeicons/primeicons.css";                                //icons
+import HomeViewModel from './views/homeView/homeViewModel';
+ 
+
+const Home = () => {
+
+  const homeViewModel = new HomeViewModel();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Routes>
+        <Route path="" element={<HomeView homeViewModel={homeViewModel} />}>
+        </Route>
+        <Route path="landon" element={<div>Landon!</div>}>
+        </Route>
+      </Routes>
   );
-}
+};
 
-export default App;
+export default observer(Home);
