@@ -6,10 +6,10 @@ import { observable } from "mobx";
 import DockComponentModel from "./dockComponentModel";
 
 interface Props {
-  DockComponentModel: DockComponentModel;
+  dockItemClicked: (passedIcon: string) => void;
 }
 
-const DockComponent = () => {
+const DockComponent = ({ dockItemClicked }: Props) => {
   return (
     <div>
       {/* 
@@ -36,7 +36,7 @@ const DockComponent = () => {
               ></img>
             ),
             command: () => {
-              console.log("Finder");
+              dockItemClicked("Finder");
             },
           },
           {
@@ -48,6 +48,9 @@ const DockComponent = () => {
                 width="100%"
               ></img>
             ),
+            command: () => {
+              dockItemClicked("Terminal");
+            },
           },
           {
             label: "App Store",
@@ -58,6 +61,9 @@ const DockComponent = () => {
                 width="100%"
               ></img>
             ),
+            command: () => {
+              dockItemClicked("App Store");
+            },
           },
           {
             label: "Safari",
@@ -68,6 +74,9 @@ const DockComponent = () => {
                 width="100%"
               ></img>
             ),
+            command: () => {
+              dockItemClicked("Safari");
+            },
           },
           {
             label: "Photos",
@@ -78,6 +87,9 @@ const DockComponent = () => {
                 width="100%"
               ></img>
             ),
+            command: () => {
+              dockItemClicked("Photos");
+            },
           },
           {
             label: "Github",
@@ -88,6 +100,9 @@ const DockComponent = () => {
                 width="100%"
               ></img>
             ),
+            command: () => {
+              dockItemClicked("Github");
+            },
           },
           {
             label: "Trash",
@@ -98,6 +113,9 @@ const DockComponent = () => {
                 width="100%"
               ></img>
             ),
+            command: () => {
+              dockItemClicked("Trash");
+            },
           },
         ]}
       ></Dock>
