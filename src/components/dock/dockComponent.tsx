@@ -25,7 +25,8 @@ const DockComponent = ({ dockItemClicked }: Props) => {
       ></Tooltip>
       <Dock
         position="bottom"
-        model={[
+        model={
+          [
           {
             label: "Finder",
             icon: () => (
@@ -117,7 +118,8 @@ const DockComponent = ({ dockItemClicked }: Props) => {
               dockItemClicked("Trash");
             },
           },
-        ]}
+        ]
+      }
       ></Dock>
     </div>
   );
